@@ -3,41 +3,48 @@ body {
     display: grid;
     box-sizing: border-box;
     height: 100%;
-    border: thin solid brown;
     grid-template-columns: 50% 50%;
     grid-column-gap: 15px;
-    grid-row-gap: 15px;
     grid-template-rows: 10% 80% 10%;
     grid-template-areas: "header header" "categories hashtags" "footer footer";
 }
 
 #categories {
     grid-area: categories;
+    border: thin solid red;
     display: grid;
     justify-content: center;
-    align-items: center;
-    border: thin solid red;
+    align-content: center;
     grid-template-rows: 20% 80%;
     grid-template-areas: "categories-header" "categories-info";
 }
 
 #categories .categories__header {
     grid-area: categories-header;
-    border: thin solid black;
 }
 
 #categories .categories__info {
     grid-area: categories-info;
-    display: grid;
-    border: thin solid black;
+    /*display: grid;*/
 }
 
 #hashtags {
     grid-area: hashtags;
-    /*justify-content: center;*/
-    /*align-self: center;*/
-    border: thin solid blue;
+    border: thin solid red;
+    display: grid;
+    justify-content: center;
     grid-template-rows: 20% 80%;
+    grid-template-areas: "hashtags-header" "hashtags-info";
+}
+
+#hashtags .hashtags__header {
+    grid-area: hashtags-header;
+    /*display: grid;*/
+}
+
+#hashtags .hashtags__info {
+    grid-area: hashtags-info;
+    /*display: grid;*/
 }
 
 html {
@@ -48,7 +55,6 @@ html {
 
 header {
     grid-area: header;
-    border: thin solid black;
     background-color: #f6f6f8;
 }
 
@@ -59,15 +65,14 @@ header {
 
 footer {
     grid-area: footer;
-    border: thin solid purple;
     position: relative;
     background-color: #f6f6f8;
 }
 
-/*a:link,*/
-/*a:visited,*/
-/*a:hover,*/
-/*a:active {*/
-/*    text-decoration: none;*/
-/*    color: #c60021;*/
-/*}*/
+a:link,
+a:visited,
+a:hover,
+a:active {
+    text-decoration: none;
+    color: #c60021;
+}
