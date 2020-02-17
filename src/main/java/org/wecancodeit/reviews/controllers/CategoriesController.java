@@ -5,11 +5,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("shoes/categories")
+@RequestMapping("categories")
 public class CategoriesController {
 
     @RequestMapping(value = "")
-    public String index(Model model) {
+    public String displayCategories(Model model) {
         model.addAttribute("title", "categories");
         return "categories";
     }

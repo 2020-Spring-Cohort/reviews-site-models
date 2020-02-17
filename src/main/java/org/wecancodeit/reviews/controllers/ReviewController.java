@@ -10,7 +10,7 @@ import org.wecancodeit.reviews.models.ReviewStorage;
 
 
 @Controller
-@RequestMapping("shoes/reviews")
+@RequestMapping("reviews")
 public class ReviewController {
 
     private ReviewStorage reviews;
@@ -20,11 +20,11 @@ public class ReviewController {
     }
 
     @RequestMapping(value = "") //root path
-    public String index(Model model) {
+    public String displayReviews(Model model) {
 
         model.addAttribute("reviews", reviews.getAll());
         model.addAttribute("title", "Shoe's Reviews");
-        return "index";
+        return "reviewView";
     }
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
