@@ -1,6 +1,6 @@
 package org.wecancodeit.reviews.models;
 
-import hashtagpojo.Hashtag;
+import org.wecancodeit.reviews.Hashtag;
 
 import java.util.Collection;
 
