@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org/" lang="en">
 <head>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <meta charset="UTF-8">
@@ -13,32 +13,11 @@
     Hello Top
 </header>
 
-<a id="phonereviews">
+<h1>Categories</h1>
 
-    <h1 class="phonereviews__html">
-        <a href="phonereviews.html">
-            Phone Reviews
-        </a>
-    </h1>
-
-    <div th:each="review : ${phoneReviews}">
-        <!-- Thymeleaf stuff -->
-    </div>
-</a>
-
-<a id="shoereviews">
-
-    <h1 class="shoereviews__html">
-        <a href="shoesreview.html">
-            Shoe Reviews
-        </a>
-    </h1>
-
-    <div th:each="review : ${phoneReviews}">
-        <!-- Thymeleaf stuff -->
-    </div>
-</a>
-
+<div id="content" th:each="category : ${categories}">
+    <!-- Thymeleaf stuff -->
+</div>
 
 <footer>
     Hello Bottom
