@@ -3,31 +3,13 @@ package org.wecancodeit.reviews.models;
 import org.springframework.stereotype.Service;
 import org.wecancodeit.reviews.Review;
 
-import java.util.ArrayList;
+import java.util.Collection;
 
 @Service
-public class ReviewStorage {
+public interface ReviewStorage {
 
-    private ArrayList<Review> reviews = new ArrayList<>();
+    Collection<Review> getAll();
 
-    public ArrayList<Review> getAll() {
-        return reviews;
-    }
+    void add(Review newReview);
 
-    public void add(Review newReview) {
-        reviews.add(newReview);
-    }
-
-
-    public Review getById(int id) {
-        Review theReview = new Review();
-
-        for (Review candidateReview : reviews) {
-            if (candidateReview.getId() == id) {
-                theReview = candidateReview;
-            }
-        }
-        return theReview;
-
-    }
 }
