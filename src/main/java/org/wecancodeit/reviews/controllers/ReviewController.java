@@ -34,9 +34,8 @@ public class ReviewController {
     }
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
-    public String processAddReviewForm(@RequestParam("reviewName") String reviewName, @RequestParam("reviewDescription") String reviewDescription, Model model) {
-        reviews.add(new Review(reviewName, reviewDescription));
-        model.addAttribute("");
+    public String processAddReviewForm(@RequestParam("reviewName") String reviewName, @RequestParam("reviewDescription") String reviewDescription, @RequestParam("reviewPrice") int reviewPrice) {
+        reviews.add(new Review(reviewName, reviewDescription, reviewPrice));
         return "redirect:";
     }
 }
