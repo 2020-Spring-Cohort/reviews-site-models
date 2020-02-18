@@ -12,8 +12,7 @@ public class Review {
         this.name = name;
         this.description = description;
         this.price = price;
-        idCount++;
-        this.reviewId = idCount;
+        this.reviewId = ++idCount;
     }
 
     public String getName() {
