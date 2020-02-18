@@ -5,21 +5,14 @@ public class Review {
     private String name;
     private String description;
     private int price;
-    private int id;
+    private static int idCount = 1;
+    private int reviewId;
 
-    public Review() {
-    }
-
-    public Review(String name, String description, int price, int id) {
+    public Review(String name, String description, int price) {
         this.name = name;
         this.description = description;
         this.price = price;
-        this.id = id;
-    }
-
-    public Review(String reviewName, String reviewDescription) {
-        name = reviewName;
-        description = reviewDescription;
+        this.reviewId = ++idCount;
     }
 
     public String getName() {
@@ -34,7 +27,7 @@ public class Review {
         return price;
     }
 
-    public int getId() {
-        return id;
+    public int getReviewId() {
+        return reviewId;
     }
 }
