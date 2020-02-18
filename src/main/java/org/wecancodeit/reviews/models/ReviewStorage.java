@@ -1,6 +1,7 @@
 package org.wecancodeit.reviews.models;
 
 import org.springframework.stereotype.Service;
+import org.wecancodeit.reviews.Review;
 
 import java.util.ArrayList;
 
@@ -22,7 +23,7 @@ public class ReviewStorage {
         Review theReview = new Review();
 
         for (Review candidateReview : reviews) {
-            if (candidateReview.getReviewId() == id) {
+            if (candidateReview.getId() == id) {
                 theReview = candidateReview;
             }
         }
