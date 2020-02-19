@@ -7,6 +7,6 @@ import org.wecancodeit.reviews.Category;
 public interface CategoryRepository  extends CrudRepository<Category, Long>{
 
 
-    }
+}
 
 
