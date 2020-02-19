@@ -24,6 +24,10 @@ public class Category {
         this.reviews = reviews;
     }
 
+    public Category(String typeOfShoe) {
+        name = typeOfShoe;
+    }
+
     public String getName() {
         return name;
     }
