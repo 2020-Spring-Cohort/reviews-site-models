@@ -1,26 +1,33 @@
 package org.wecancodeit.reviews;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import java.util.Collection;
+
+@Entity
 public class Hashtag {
 
 
     private String name;
-    private int id;
+    @Id
+    @GeneratedValue
+    private Long id;
+    @ManyToMany(mappedBy = "hashtags")
+    private Collection<Review> reviews;
 
     // Needed for JPA
     protected Hashtag() {
     }
 
-    public Hashtag(String name, int id) {
+    public Hashtag(String name) {
         this.name = name;
-        this.id = id;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getId() {
-        return id;
-    }
 }
 
