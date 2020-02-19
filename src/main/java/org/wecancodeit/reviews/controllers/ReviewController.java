@@ -13,18 +13,12 @@ import org.wecancodeit.reviews.models.ReviewStorage;
 @RequestMapping("reviews")
 public class ReviewController {
 
-    private ReviewStorage reviews;
-
-    public ReviewController(ReviewStorage reviews) {
-        this.reviews = reviews;
-    }
+    private ReviewStorage storage;
 
     @RequestMapping //root path
     public String displayReviews(Model model) {
-
-        model.addAttribute("reviews", reviews.getAll());
-        model.addAttribute("title", "Shoe's Reviews");
-        return "reviewView";
+        model.addAttribute("reviews", storage.getAll());
+        return "reviews";
     }
 
     @RequestMapping(value = "add", method = RequestMethod.GET)
@@ -35,7 +29,7 @@ public class ReviewController {
 
     @RequestMapping(value = "add", method = RequestMethod.POST)
     public String processAddReviewForm(@RequestParam("reviewName") String reviewName, @RequestParam("reviewDescription") String reviewDescription, @RequestParam("reviewPrice") int reviewPrice) {
-        reviews.add(new Review(reviewName, reviewDescription, reviewPrice));
+        storage.add(new Review(reviewName, reviewDescription, reviewPrice));
         return "redirect:";
     }
 }
