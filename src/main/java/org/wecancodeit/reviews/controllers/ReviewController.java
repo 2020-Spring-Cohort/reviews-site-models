@@ -19,7 +19,7 @@ public class ReviewController {
         this.reviews = reviews;
     }
 
-    @RequestMapping(value = "") //root path
+    @RequestMapping //root path
     public String displayReviews(Model model) {
 
         model.addAttribute("reviews", reviews.getAll());
