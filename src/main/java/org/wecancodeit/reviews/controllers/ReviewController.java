@@ -15,6 +15,10 @@ public class ReviewController {
 
     private ReviewStorage storage;
 
+    public ReviewController(ReviewStorage storage) {
+        this.storage = storage;
+    }
+
     @RequestMapping //root path
     public String displayReviews(Model model) {
         model.addAttribute("reviews", storage.getAll());
