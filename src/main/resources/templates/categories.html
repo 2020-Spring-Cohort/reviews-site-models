@@ -15,9 +15,26 @@
 
 <h1>Categories</h1>
 
-<div id="content" th:each="category : ${categories}">
-    <!-- Thymeleaf stuff -->
-</div>
+<!--<div id="content" th:each="category : ${categories}">-->
+<table>
+    <thead>
+    <tr>
+        <th>Type</th>
+        <th>Reviews</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${categories.isEmpty()}">
+        <td colspan="2">No categories</td>
+    </tr>
+    <tr th:each="category : ${categories}">
+        <td><span th:text="${category.getName()}">Name</span></td>
+        <td><span th:text="${category.getReviews()}">Data</span></td>
+    </tr>
+    </tbody>
+</table>
+<!-- Thymeleaf stuff -->
+<!--</div>-->
 
 <footer>
     Hello Bottom

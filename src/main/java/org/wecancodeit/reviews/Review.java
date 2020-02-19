@@ -39,6 +39,14 @@ public class Review {
         this.reviewId = idCount++;
     }
 
+    public Review(Category category, String name, String description, int price) {
+        this.category = category;
+        this.userName = "Anonymous";
+        this.reviewTitle = name;
+        this.description = description;
+        this.price = price;
+    }
+
     public String getUserName() {
         return userName;
     }
@@ -57,5 +65,10 @@ public class Review {
 
     public int getReviewId() {
         return reviewId;
+    }
+
+    @Override
+    public String toString() {
+        return getReviewTitle() + '\n' + getDescription() + "\nBy " + getUserName();
     }
 }
