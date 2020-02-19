@@ -11,6 +11,10 @@ public class CategoriesController {
 
     CategoryStorage storage;
 
+    public CategoriesController(CategoryStorage storage) {
+        this.storage = storage;
+    }
+
     @RequestMapping(value = "")
     public String displayCategories(Model model) {
         model.addAttribute("categories", storage.getAll());

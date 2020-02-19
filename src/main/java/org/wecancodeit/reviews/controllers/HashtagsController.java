@@ -12,6 +12,10 @@ public class HashtagsController {
 
     HashtagStorage storage;
 
+    public HashtagsController(HashtagStorage storage) {
+        this.storage = storage;
+    }
+
     @RequestMapping
     public String displayHashtags(Model model) {
         model.addAttribute("hashtags", storage.getAll());
