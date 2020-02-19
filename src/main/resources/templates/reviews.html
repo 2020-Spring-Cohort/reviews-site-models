@@ -9,7 +9,7 @@
 <div th:each="review : ${reviews}">
     <h2  th:text="${review.userName}" class="review__username">Default User Name</h2>
 
-    <h1 th:text="${review.name}" class="review__name">Default Title</h1>
+    <h1 th:text="${review.reviewTitle}" class="review__name">Default Title</h1>
     <h3 th:text="${review.price}" class="review__price">Default Price</h3>
 
     <p>Review Content</p>
