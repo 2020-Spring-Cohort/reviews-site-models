@@ -2,6 +2,7 @@ package org.wecancodeit.reviews.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.wecancodeit.reviews.models.HashtagStorage;
 
@@ -16,7 +17,7 @@ public class HashtagsController {
         this.storage = storage;
     }
 
-    @RequestMapping
+    @GetMapping
     public String displayHashtags(Model model) {
         model.addAttribute("hashtags", storage.getAll());
         return "hashtags";
