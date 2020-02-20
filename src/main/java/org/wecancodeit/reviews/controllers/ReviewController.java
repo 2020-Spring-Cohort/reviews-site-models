@@ -34,7 +34,7 @@ public class ReviewController {
 
     @PostMapping("add")
     public String processAddReviewForm(@RequestParam("reviewName") String reviewName, @RequestParam("reviewDescription") String reviewDescription, @RequestParam("reviewPrice") int reviewPrice) {
-        storage.add(new Review(reviewName, reviewDescription, reviewPrice));
+        storage.store(new Review(reviewName, reviewDescription, reviewPrice));
         return "redirect:";
     }
 }

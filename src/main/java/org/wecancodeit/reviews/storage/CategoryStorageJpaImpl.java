@@ -21,7 +21,12 @@ public class CategoryStorageJpaImpl implements CategoryStorage {
     }
 
     @Override
-    public void add(Category category) {
+    public void store(Category category) {
         repository.save(category);
+    }
+
+    @Override
+    public Category findCategoryByName(String name) {
+        return repository.findByName(name).get();
     }
 }

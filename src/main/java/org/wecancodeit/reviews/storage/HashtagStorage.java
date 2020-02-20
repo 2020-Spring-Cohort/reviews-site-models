@@ -10,4 +10,7 @@ public interface HashtagStorage {
 
     void add(Hashtag hashtag);
 
+    Hashtag findHashtagById(long id);
+
+    Hashtag findHashtagByName(String name);
 }

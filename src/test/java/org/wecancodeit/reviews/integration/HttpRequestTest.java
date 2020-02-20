@@ -19,22 +19,22 @@ public class HttpRequestTest {
     @Autowired
     private TestRestTemplate testRestTemplate;
 
-//    @Test
-//    public void reviewsEndpointShouldBeOK(){
-//        ResponseEntity<String> response = testRestTemplate.getForEntity(
-//                "http://localhost:" + port + "/reviews", String.class);
-//        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
-//    }
+    @Test
+    public void reviewsEndpointShouldBeOK() {
+        ResponseEntity<String> response = testRestTemplate.getForEntity(
+                "http://localhost:" + port + "/reviews", String.class);
+        assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+    }
 
     @Test
-    public void categoriesEndpointShouldBeOK(){
+    public void categoriesEndpointShouldBeOK() {
         ResponseEntity<String> response = testRestTemplate.getForEntity(
                 "http://localhost:" + port + "/categories", String.class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
     }
 
     @Test
-    public void hashtagsEndpointShouldBeOK(){
+    public void hashtagsEndpointShouldBeOK() {
         ResponseEntity<String> response = testRestTemplate.getForEntity(
                 "http://localhost:" + port + "/hashtags", String.class);
         assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);

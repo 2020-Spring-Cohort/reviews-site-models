@@ -1,6 +1,7 @@
 package org.wecancodeit.reviews.models;
 
 import javax.persistence.*;
+import java.util.Arrays;
 import java.util.Collection;
 
 @Entity
@@ -44,6 +45,14 @@ public class Review {
         this.reviewTitle = title;
         this.description = description;
         this.price = price;
+    }
+
+    public Review(Category category, String reviewTitle, String description, int price, Hashtag... hashtags) {
+        this.category = category;
+        this.reviewTitle = reviewTitle;
+        this.description = description;
+        this.price = price;
+        this.hashtags = Arrays.asList(hashtags);
     }
 
 

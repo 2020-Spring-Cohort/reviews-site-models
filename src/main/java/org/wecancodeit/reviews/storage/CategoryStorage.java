@@ -8,6 +8,7 @@ public interface CategoryStorage {
 
     Collection<Category> getAll();
 
-    void add(Category category);
+    void store(Category category);
 
+    Category findCategoryByName(String name);
 }

@@ -8,6 +8,7 @@ public interface ReviewStorage {
 
     Collection<Review> getAll();
 
-    void add(Review newReview);
+    void store(Review newReview);
 
+    Review findReviewById(long id);
 }

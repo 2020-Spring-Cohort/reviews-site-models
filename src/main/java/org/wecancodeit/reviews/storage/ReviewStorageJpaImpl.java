@@ -21,7 +21,12 @@ public class ReviewStorageJpaImpl implements ReviewStorage {
     }
 
     @Override
-    public void add(Review newReview) {
+    public void store(Review newReview) {
         repository.save(newReview);
+    }
+
+    @Override
+    public Review findReviewById(long id) {
+        return repository.findById(id).get();
     }
 }
