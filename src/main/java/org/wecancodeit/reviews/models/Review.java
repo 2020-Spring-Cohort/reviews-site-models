@@ -1,4 +1,7 @@
-package org.wecancodeit.reviews;
+package org.wecancodeit.reviews.models;
+
+import org.wecancodeit.reviews.models.Category;
+import org.wecancodeit.reviews.models.Hashtag;
 
 import javax.persistence.*;
 import java.util.Collection;

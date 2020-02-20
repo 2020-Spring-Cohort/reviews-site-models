@@ -1,6 +1,6 @@
-package org.wecancodeit.reviews.models;
+package org.wecancodeit.reviews.storage;
 
-import org.wecancodeit.reviews.Category;
+import org.wecancodeit.reviews.models.Category;
 
 import java.util.Collection;
 
