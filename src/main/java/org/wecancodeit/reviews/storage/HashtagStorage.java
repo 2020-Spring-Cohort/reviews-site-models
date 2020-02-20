@@ -1,6 +1,6 @@
-package org.wecancodeit.reviews.models;
+package org.wecancodeit.reviews.storage;
 
-import org.wecancodeit.reviews.Hashtag;
+import org.wecancodeit.reviews.models.Hashtag;
 
 import java.util.Collection;
 

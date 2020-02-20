@@ -1,7 +1,7 @@
-package org.wecancodeit.reviews.models;
+package org.wecancodeit.reviews.storage.repositories;
 
 import org.springframework.data.repository.CrudRepository;
-import org.wecancodeit.reviews.Category;
+import org.wecancodeit.reviews.models.Category;
 
 
 public interface CategoryRepository  extends CrudRepository<Category, Long>{
