@@ -2,9 +2,12 @@ package org.wecancodeit.reviews.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
-import org.wecancodeit.reviews.Review;
-import org.wecancodeit.reviews.models.ReviewStorage;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.wecancodeit.reviews.models.Review;
+import org.wecancodeit.reviews.storage.ReviewStorage;
 
 
 @Controller
