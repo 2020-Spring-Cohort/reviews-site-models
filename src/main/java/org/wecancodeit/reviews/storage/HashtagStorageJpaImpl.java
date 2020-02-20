@@ -26,4 +26,14 @@ public class HashtagStorageJpaImpl implements HashtagStorage {
         repository.save(hashtag);
 
     }
+
+    @Override
+    public Hashtag findHashtagById(long id) {
+        return repository.findById(id).get();
+    }
+
+    @Override
+    public Hashtag findHashtagByName(String name) {
+        return repository.findByName(name).get();
+    }
 }

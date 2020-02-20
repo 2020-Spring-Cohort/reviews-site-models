@@ -7,6 +7,8 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
+import org.wecancodeit.reviews.storage.CategoryStorage;
+import org.wecancodeit.reviews.storage.HashtagStorage;
 import org.wecancodeit.reviews.storage.ReviewStorage;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -21,14 +23,19 @@ public class WebLayerTest {
     private MockMvc mockMvc;
     @MockBean
     ReviewStorage mockStorage;
-//    @Test
-//    public void reviewsShouldBeOKAndReturnTheReviewViewWithReviewsModelAttribute() throws Exception {
-//        mockMvc.perform(get("/reviews"))
-//                .andDo(print())
-//                .andExpect(status().isOk())
-//                .andExpect(view().name("reviewView"))
-//                .andExpect(model().attributeExists("reviews"));
-//    }
+    @MockBean
+    CategoryStorage categoryStorage;
+    @MockBean
+    HashtagStorage hashtagStorage;
+
+    @Test
+    public void reviewsShouldBeOKAndReturnTheReviewViewWithReviewsModelAttribute() throws Exception {
+        mockMvc.perform(get("/reviews"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(view().name("reviews"))
+                .andExpect(model().attributeExists("reviews"));
+    }
 
     @Test
     public void categoriesShouldBeOKAndReturnTheCategoryViewWithCategoriesModelAttribute() throws Exception {
@@ -36,16 +43,16 @@ public class WebLayerTest {
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(view().name("categories"))
-                .andExpect(model().attributeExists("title"));
+                .andExpect(model().attributeExists("categories"));
     }
 
     @Test
-    public void reviewsShouldBeOKAndReturnTheReviewViewWithReviewsModelAttribute() throws Exception {
+    public void hashtagsShouldBeOKAndReturnTheHashtagViewWithHashtagsModelAttribute() throws Exception {
         mockMvc.perform(get("/hashtags"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(view().name("hashtags"))
-                .andExpect(model().attributeExists("title"));
+                .andExpect(model().attributeExists("hashtags"));
     }
 
 }
