@@ -1,8 +1,8 @@
-package org.wecancodeit.reviews;
+package org.wecancodeit.reviews.storage;
 
 import org.springframework.stereotype.Service;
-import org.wecancodeit.reviews.models.ReviewRepository;
-import org.wecancodeit.reviews.models.ReviewStorage;
+import org.wecancodeit.reviews.models.Review;
+import org.wecancodeit.reviews.storage.repositories.ReviewRepository;
 
 import java.util.Collection;
 
