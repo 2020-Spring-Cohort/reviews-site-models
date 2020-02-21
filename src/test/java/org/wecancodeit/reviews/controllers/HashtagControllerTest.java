@@ -49,7 +49,7 @@ public class HashtagControllerTest {
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(underTest).build();
         mockMvc.perform(MockMvcRequestBuilders.get("/hashtags/1"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("hashtags"))
+                .andExpect(view().name("hashtag"))
                 .andExpect(model().attributeExists("hashtag"))
                 .andExpect(model().attribute("hashtag", testHashtag));
     }

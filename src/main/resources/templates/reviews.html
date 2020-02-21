@@ -9,10 +9,11 @@
 <div th:each="review : ${reviews}">
     <h2  th:text="${review.userName}" class="review__username">Default User Name</h2>
 
-    <h1 th:text="${review.reviewTitle}" class="review__name">Default Title</h1>
+    <h1 class="review__name"><a th:text="${review.reviewTitle}" th:href="@{'/reviews/' + ${review.getId()}}">Default
+        Title</a></h1>
     <h3 th:text="${review.price}" class="review__price">Default Price</h3>
 
-    <p>Review Content</p>
+    <p th:text="${review.getDescription()}">Description</p>
 
 </div>
 

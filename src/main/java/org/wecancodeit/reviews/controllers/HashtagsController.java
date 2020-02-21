@@ -29,6 +29,6 @@ public class HashtagsController {
     public String displayHashtag(@PathVariable long hashTagId, Model model) {
         Hashtag retrievedHashtag = storage.findHashtagById(hashTagId);
         model.addAttribute("hashtag", retrievedHashtag);
-        return "hashtags";
+        return "hashtag";
     }
 }

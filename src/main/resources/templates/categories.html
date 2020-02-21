@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org/" lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+<!--    <link rel="stylesheet" type="text/css" href="css/style.css">-->
     <meta charset="UTF-8">
     <title>Models Review</title>
 </head>
@@ -16,8 +16,13 @@
 <h1>Categories</h1>
 
 <div id="content" th:each="category : ${categories}">
-    <!-- Thymeleaf stuff -->
+    <h2><a th:text="${category.getName()}" th:href="@{'/categories/' + ${category.getName()}}">Category</a></h2>
 </div>
+
+<form action="/categories/add-category" method="POST">
+    <input type="text" name="name" placeholder="Category Name">
+    <button type="submit">Add Category</button>
+</form>
 
 <footer>
     Hello Bottom
