@@ -8,9 +8,13 @@ import org.springframework.ui.Model;
 import org.wecancodeit.reviews.models.Category;
 import org.wecancodeit.reviews.storage.CategoryStorage;
 
+import java.util.Collections;
+import java.util.List;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 public class CategoryControllerTest {
@@ -40,9 +44,9 @@ public class CategoryControllerTest {
     }
 
     @Test
-    public void shouldReturnViewNamedCategoriesWhenDisplaySingleCategoryIsCalled() {
+    public void shouldReturnViewNamedCategoryWhenDisplaySingleCategoryIsCalled() {
         String viewName = underTest.displaySingleCategory("Good", mockModel);
-        assertThat(viewName).isEqualTo("categories");
+        assertThat(viewName).isEqualTo("category");
     }
 
     @Test
@@ -52,24 +56,24 @@ public class CategoryControllerTest {
 
         mockMvc.perform(get("/categories/Cool"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("categories"))
+                .andExpect(view().name("category"))
                 .andExpect(model().attributeExists("category"))
                 .andExpect(model().attribute("category", testCategory));
     }
 
-//    @Test
-//    public void categoriesEndPointShouldDisplayAllCategories() throws Exception {
-//        Category testCategory = new Category("Test");
-//
-//        List<Category> categoryList = Collections.singletonList(testCategory);
-//
-//        when(mockStorage.getAll()).thenReturn(categoryList);
-//
-//        mockMvc.perform(get("/categories"))
-//                .andDo(print())
-//                .andExpect(status().isOk())
-//                .andExpect(view().name("categories"))
-//                .andExpect(model().attributeExists("categories"))
-//                .andExpect(model().attribute("categories", categoryList));
-//    }
+    @Test
+    public void categoriesEndPointShouldDisplayAllCategories() throws Exception {
+        Category testCategory = new Category("Test");
+
+        List<Category> categoryList = Collections.singletonList(testCategory);
+
+        when(mockStorage.getAll()).thenReturn(categoryList);
+
+        mockMvc.perform(get("/categories/"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(view().name("categories"))
+                .andExpect(model().attributeExists("categories"))
+                .andExpect(model().attribute("categories", categoryList));
+    }
 }

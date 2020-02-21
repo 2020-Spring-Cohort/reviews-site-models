@@ -34,7 +34,7 @@ public class ReviewControllerTest {
     @Test
     public void displayReviewReturnsReviewTemplate() {
         String result = underTest.displayReview(1L, model);
-        assertThat(result).isEqualTo("reviews");
+        assertThat(result).isEqualTo("review");
     }
 
     @Test
@@ -50,7 +50,7 @@ public class ReviewControllerTest {
 
         mockMvc.perform(MockMvcRequestBuilders.get("/reviews/1"))
                 .andExpect(status().isOk())
-                .andExpect(view().name("reviews"))
+                .andExpect(view().name("review"))
                 .andExpect(model().attributeExists("review"))
                 .andExpect(model().attribute("review", testReview));
     }
