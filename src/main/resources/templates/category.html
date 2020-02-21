@@ -3,7 +3,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <meta charset="UTF-8">
-    <title>Shoe Review</title>
+    <title th:text="${category.getName()}">Category</title>
 </head>
 
 
@@ -13,11 +13,11 @@
     Hello Top
 </header>
 
-<h1>Shoe category</h1>
+
 
 <div>
 
-    <h2 th:text="${category.getName()}"></h2>
+    <h1 th:text="${category.getName()}"></h1>
 
 </div>
 
