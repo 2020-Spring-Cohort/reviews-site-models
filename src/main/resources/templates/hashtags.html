@@ -3,13 +3,18 @@
       xmlns="http://www.w3.org/1999/xhtml">
 <head>
 
-    <title th:text="${title}"></title>
+    <title>Hashtags</title>
 
 </head>
 <body>
 
-<h1 th:text="${title}">Default Title</h1>
+<h1>Hashtags</h1>
 
+<h2 th:each="hashtag : ${hashtags}">
+    <a th:text="${hashtag.getName()}" th:href="@{'/hashtags/' + ${hashtag.getId()}}">
+        Hashtag
+    </a>
+</h2>
 
 </body>
 

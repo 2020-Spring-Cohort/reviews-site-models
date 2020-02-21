@@ -11,7 +11,7 @@
     <h2 th:text="${review.getUserName()}">Default User Name</h2>
     <h1 th:text="${review.getReviewTitle()}">Default Title</h1>
     <h3 th:text="${review.getPrice()}">Default Price</h3>
-    <h3 th:text="${review.getCategory().getName()}"><a th:href="@{'/categories/' + ${review.getCategory().getId()}}">Default
+    <h3><a th:text="${review.getCategory().getName()}" th:href="@{'/categories/' + ${review.getCategory().getName()}}">Default
         Category </a></h3>
 
 

@@ -8,8 +8,12 @@
 </head>
 <body>
 
+
 <h1 th:text="${hashtag.getName()}">Hashtag</h1>
 
+<h2 th:each="review : ${hashtag.getReviews()}">
+    <a th:text="${review.getReviewTitle()}" th:href="@{'/reviews/' + ${review.getId()}}">Review</a>
+</h2>
 
 </body>
 

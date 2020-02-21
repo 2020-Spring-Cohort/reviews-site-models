@@ -18,6 +18,9 @@
 <div>
 
     <h1 th:text="${category.getName()}"></h1>
+    <h3 th:each="review : ${category.getReviews()}">
+        <a th:text="${review.getReviewTitle()}" th:href="@{'/reviews/' + ${review.getId()}}">Review</a>
+    </h3>
 
 </div>
 
