@@ -39,7 +39,7 @@ public class ReviewController {
     public String displayReview(@PathVariable long id, Model model) {
         Review retrievedReview = storage.findReviewById(id);
         model.addAttribute("review", retrievedReview);
-        return "reviews";
+        return "review";
     }
 }
 

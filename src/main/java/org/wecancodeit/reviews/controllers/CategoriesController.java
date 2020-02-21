@@ -29,7 +29,7 @@ public class CategoriesController {
         Category retrievedCategory = storage.findCategoryByName(categoryName);
         model.addAttribute("category", retrievedCategory);
 
-        return "categories";
+        return "category";
     }
 }
 

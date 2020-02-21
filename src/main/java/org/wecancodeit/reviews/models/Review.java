@@ -84,6 +84,10 @@ public class Review {
         return reviewId;
     }
 
+    public Category getCategory() {
+        return category;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
