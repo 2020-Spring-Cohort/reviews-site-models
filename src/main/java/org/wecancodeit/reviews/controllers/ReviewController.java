@@ -2,10 +2,7 @@ package org.wecancodeit.reviews.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.wecancodeit.reviews.models.Review;
 import org.wecancodeit.reviews.storage.ReviewStorage;
 
@@ -36,6 +33,13 @@ public class ReviewController {
     public String processAddReviewForm(@RequestParam("reviewName") String reviewName, @RequestParam("reviewDescription") String reviewDescription, @RequestParam("reviewPrice") int reviewPrice) {
         storage.store(new Review(reviewName, reviewDescription, reviewPrice));
         return "redirect:";
+    }
+
+    @GetMapping("/{id}")
+    public String displayReview(@PathVariable long id, Model model) {
+        Review retrievedReview = storage.findReviewById(id);
+        model.addAttribute("review", retrievedReview);
+        return "reviews";
     }
 }
 
