@@ -2,9 +2,7 @@ package org.wecancodeit.reviews.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.wecancodeit.reviews.models.Hashtag;
 import org.wecancodeit.reviews.storage.HashtagStorage;
 
@@ -30,5 +28,11 @@ public class HashtagsController {
         Hashtag retrievedHashtag = storage.findHashtagById(hashTagId);
         model.addAttribute("hashtag", retrievedHashtag);
         return "hashtag";
+    }
+
+    @PostMapping("/add-hashtag")
+    public String addHashtag(@RequestParam String hashtag) {
+        storage.add(new Hashtag(hashtag));
+        return "redirect:";
     }
 }
