@@ -63,8 +63,9 @@ public class ReviewControllerTest {
         mockMvc.perform(post("/reviews/add")
                 .param("reviewName", "Test")
                 .param("reviewDescription", "Test")
-                .param("reviewPrice", "100"))
+                .param("reviewPrice", "100")
+                .param("userName", "test"))
                 .andExpect(status().is3xxRedirection());
-        verify(mockStorage).store(new Review("Test", "Test", 100));
+        verify(mockStorage).store(new Review("Test", "test", "Test", 100));
     }
 }

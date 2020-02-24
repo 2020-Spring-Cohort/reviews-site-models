@@ -55,6 +55,13 @@ public class Review {
         this.hashtags = Arrays.asList(hashtags);
     }
 
+    public Review(String userName, Category category, String reviewTitle, String description, int price) {
+        this.userName = userName;
+        this.category = category;
+        this.reviewTitle = reviewTitle;
+        this.description = description;
+        this.price = price;
+    }
 
     public Collection<Hashtag> getHashtags() {
         return hashtags;

@@ -18,9 +18,15 @@
 </div>
 
 <form action="/reviews/add" method="POST">
+    <select name="category">
+        <option th:each="category : ${categories}" th:text="${category.getName()}" th:value="${category.getName()}">
+            Category
+        </option>
+    </select>
     <input type="text" name="reviewName" placeholder="Review Name"/>
     <input type="text" name="reviewDescription" placeholder=" Review"/>
     <input type="number" name="reviewPrice" placeholder="Price" min="0" max="500"/>
+    <input type="text" name="userName" placeholder="User Name">
 
 
     <button type="submit">Add Review</button>
