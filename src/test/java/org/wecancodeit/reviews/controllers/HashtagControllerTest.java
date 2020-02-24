@@ -11,6 +11,7 @@ import org.wecancodeit.reviews.models.Hashtag;
 import org.wecancodeit.reviews.models.Review;
 import org.wecancodeit.reviews.storage.HashtagStorage;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -34,7 +35,9 @@ public class HashtagControllerTest {
 
     @Test
     public void displayHashtagReturnsHashtagTemplate() {
-        //TODO: Finish after single hashtag template is created
+        String result = underTest.displayHashtag(1L, model);
+        assertThat(result).isEqualTo("hashtag");
+        verify(mockStorage).findHashtagById(1L);
     }
 
     @Test
