@@ -14,7 +14,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-public class ReviewControllerTest {
+public class
+
+ReviewControllerTest {
 
     private ReviewController underTest;
     private Model model;
