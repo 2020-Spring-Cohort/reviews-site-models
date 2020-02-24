@@ -13,6 +13,8 @@ import org.wecancodeit.reviews.storage.HashtagStorage;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 public class HashtagControllerTest {
@@ -21,12 +23,14 @@ public class HashtagControllerTest {
     private Model model;
     private HashtagStorage mockStorage;
     private Hashtag testHashtag;
+    private MockMvc mockMvc;
 
     @BeforeEach
     void setUp() {
         mockStorage = mock(HashtagStorage.class);
         underTest = new HashtagsController(mockStorage);
         model = mock(Model.class);
+        mockMvc = MockMvcBuilders.standaloneSetup(underTest).build();
         Category testCategory = new Category("Sick");
         Review testReview = new Review(testCategory, "Test", "test", 100);
         testHashtag = new Hashtag("#nice", testReview);
@@ -55,5 +59,13 @@ public class HashtagControllerTest {
                 .andExpect(view().name("hashtag"))
                 .andExpect(model().attributeExists("hashtag"))
                 .andExpect(model().attribute("hashtag", testHashtag));
+    }
+
+    @Test
+    public void addHashtagShouldRedirect() throws Exception {
+        mockMvc.perform(post("/hashtags/add-hashtag").param("hashtag", "test"))
+                .andDo(print())
+                .andExpect(status().is3xxRedirection());
+        verify(mockStorage).add(new Hashtag("test"));
     }
 }
