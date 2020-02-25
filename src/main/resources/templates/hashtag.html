@@ -6,7 +6,13 @@
     <title>#Hashtags</title>
 
 </head>
+
+
 <body>
+
+<h3 class="nav"><a href="/categories">Categories</a></h3>
+<h3 class="nav"><a href="/reviews">Reviews</a></h3>
+<h3 class="nav"><a href="/hashtags">Hashtags</a></h3>
 
 
 <h1 th:text="${hashtag.getName()}">Hashtag</h1>
@@ -14,6 +20,7 @@
 <h2 th:each="review : ${hashtag.getReviews()}">
     <a th:text="${review.getReviewTitle()}" th:href="@{'/reviews/' + ${review.getId()}}">Review</a>
 </h2>
+
 
 </body>
 

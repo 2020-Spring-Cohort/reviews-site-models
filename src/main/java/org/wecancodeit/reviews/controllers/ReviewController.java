@@ -28,11 +28,6 @@ public class ReviewController {
         return "reviews";
     }
 
-    @GetMapping("add")
-    public String addReviewForm(Model model) {
-        model.addAttribute("title", "Add Review");
-        return "add";
-    }
 
     @PostMapping("add")
     public String processAddReviewForm(@RequestParam("category") String category, @RequestParam("reviewName") String reviewName, @RequestParam("reviewDescription") String reviewDescription,
