@@ -39,10 +39,10 @@ public class ReviewController {
                                        @RequestParam("reviewPrice") int reviewPrice, @RequestParam(value = "userName", required = false) String userName) {
 
         Category retrievedCategory = categoryStorage.findCategoryByName(category);
-        if (userName.isEmpty()) {
+        if (userName == null || userName.isEmpty()) {
             storage.store(new Review(retrievedCategory, reviewName, reviewDescription, reviewPrice));
         } else {
-            storage.store(new Review(reviewName, retrievedCategory, userName, reviewDescription, reviewPrice));
+            storage.store(new Review(userName, retrievedCategory, reviewName, reviewDescription, reviewPrice));
         }
         return "redirect:";
     }

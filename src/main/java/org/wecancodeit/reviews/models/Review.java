@@ -96,6 +96,17 @@ public class Review {
     }
 
     @Override
+    public String toString() {
+        return "Review{" +
+                "reviewTitle='" + reviewTitle + '\'' +
+                ", userName='" + userName + '\'' +
+                ", category=" + category +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -103,7 +114,6 @@ public class Review {
         Review review = (Review) o;
 
         if (price != review.price) return false;
-        if (id != null ? !id.equals(review.id) : review.id != null) return false;
         if (reviewTitle != null ? !reviewTitle.equals(review.reviewTitle) : review.reviewTitle != null) return false;
         if (userName != null ? !userName.equals(review.userName) : review.userName != null) return false;
         if (category != null ? !category.equals(review.category) : review.category != null) return false;
@@ -112,8 +122,7 @@ public class Review {
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (reviewTitle != null ? reviewTitle.hashCode() : 0);
+        int result = reviewTitle != null ? reviewTitle.hashCode() : 0;
         result = 31 * result + (userName != null ? userName.hashCode() : 0);
         result = 31 * result + (category != null ? category.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);
