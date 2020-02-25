@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org/" lang="en">
 <head>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/layout.css">
     <meta charset="UTF-8">
     <title>Models Review</title>
 </head>
@@ -17,16 +18,21 @@
 
 <div class="content__body">
 
-    <h1>Categories</h1>
+    <div class="content__body__info">
 
-    <div th:each="category : ${categories}" th:remove="tag">
-        <h2><a th:text="${category.getName()}" th:href="@{'/categories/' + ${category.getName()}}">Category</a></h2>
+        <h1>Categories</h1>
+
+
+        <div th:each="category : ${categories}" th:remove="tag">
+            <h2><a th:text="${category.getName()}" th:href="@{'/categories/' + ${category.getName()}}">Category</a></h2>
+        </div>
+
+        <form action="/categories/add-category" method="POST">
+            <input type="text" name="name" placeholder="Category Name">
+            <button type="submit">Add Category</button>
+        </form>
+
     </div>
-
-    <form action="/categories/add-category" method="POST">
-        <input type="text" name="name" placeholder="Category Name">
-        <button type="submit">Add Category</button>
-    </form>
 
 </div>
 
