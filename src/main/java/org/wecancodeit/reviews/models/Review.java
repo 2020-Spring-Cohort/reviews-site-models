@@ -14,7 +14,7 @@ public class Review {
     private String userName;
     @ManyToOne
     private Category category;
-    @ManyToMany(mappedBy = "reviews")
+    @ManyToMany
     private Collection<Hashtag> hashtags;
     private String description;
     private int price;

@@ -15,7 +15,7 @@ public class Hashtag {
     @Id
     @GeneratedValue
     private Long id;
-    @ManyToMany
+    @ManyToMany(mappedBy = "hashtags")
     private Collection<Review> reviews;
 
     // Needed for JPA

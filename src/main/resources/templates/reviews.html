@@ -2,47 +2,51 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org/" lang="en">
 
 <head>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<body class="content">
 
-<h3 class="nav"><a href="/categories">Categories</a></h3>
-<h3 class="nav"><a href="/reviews">Reviews</a></h3>
-<h3 class="nav"><a href="/hashtags">Hashtags</a></h3>
+<header class="content__nav">
+    <h3><a href="/categories">Categories</a></h3>
+    <h3><a href="/reviews">Reviews</a></h3>
+    <h3><a href="/hashtags">Hashtags</a></h3>
+</header>
+
+<div class="content__body">
+
+    <div th:each="review : ${reviews}" th:remove="tag">
+        <h2 th:text="${review.userName}" class="review__username">Default User Name</h2>
+
+        <h1 class="review__name"><a th:text="${review.reviewTitle}" th:href="@{'/reviews/' + ${review.getId()}}">Default
+            Title</a></h1>
+        <h3 th:text="${review.price}" class="review__price">Default Price</h3>
+
+        <p th:text="${review.getDescription()}">Description</p>
+
+    </div>
+
+    <form action="/reviews/add" method="POST">
+        <select name="category">
+            <option th:each="category : ${categories}" th:text="${category.getName()}" th:value="${category.getName()}">
+                Category
+            </option>
+        </select>
+        <input type="text" name="reviewName" placeholder="Review Name"/>
+        <input type="text" name="reviewDescription" placeholder=" Review"/>
+        <input type="number" name="reviewPrice" placeholder="Price" min="0" max="500"/>
+        <input type="text" name="userName" placeholder="User Name">
 
 
-<div th:each="review : ${reviews}">
-    <h2 th:text="${review.userName}" class="review__username">Default User Name</h2>
+        <button type="submit">Add Review</button>
 
-    <h1 class="review__name"><a th:text="${review.reviewTitle}" th:href="@{'/reviews/' + ${review.getId()}}">Default
-        Title</a></h1>
-    <h3 th:text="${review.price}" class="review__price">Default Price</h3>
 
-    <p th:text="${review.getDescription()}">Description</p>
+    </form>
 
 </div>
 
-<form action="/reviews/add" method="POST">
-    <select name="category">
-        <option th:each="category : ${categories}" th:text="${category.getName()}" th:value="${category.getName()}">
-            Category
-        </option>
-    </select>
-    <input type="text" name="reviewName" placeholder="Review Name"/>
-    <input type="text" name="reviewDescription" placeholder=" Review"/>
-    <input type="number" name="reviewPrice" placeholder="Price" min="0" max="500"/>
-    <input type="text" name="userName" placeholder="User Name">
-
-
-    <button type="submit">Add Review</button>
-
-
-</form>
-
+<footer class="content__footer"><h3><a href="/">Home</a></h3></footer>
 
 </body>
-
-
-
 </html>
