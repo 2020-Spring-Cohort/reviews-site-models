@@ -3,6 +3,7 @@
       xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/layout.css">
     <title>#Hashtags</title>
 
 </head>
@@ -17,12 +18,15 @@
 </header>
 
 <div class="content__body">
-    <h1 th:text="${hashtag.getName()}">Hashtag</h1>
 
-    <h2 th:each="review : ${hashtag.getReviews()}">
-        <a th:text="${review.getReviewTitle()}" th:href="@{'/reviews/' + ${review.getId()}}">Review</a>
-    </h2>
+    <div class="content__body__info">
+        <h1 th:text="${hashtag.getName()}">Hashtag</h1>
 
+        <h2 th:each="review : ${hashtag.getReviews()}">
+            <a th:text="${review.getReviewTitle()}" th:href="@{'/reviews/' + ${review.getId()}}">Review</a>
+        </h2>
+
+    </div>
 </div>
 
 <footer class="content__footer"><h3><a href="/">Home</a></h3></footer>

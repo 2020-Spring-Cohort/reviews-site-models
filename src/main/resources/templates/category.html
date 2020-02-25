@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org/" lang="en">
 <head>
     <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/layout.css">
     <meta charset="UTF-8">
     <title th:text="${category.getName()}">Category</title>
 </head>
@@ -18,11 +19,14 @@
 
 <div class="content__body">
 
-    <h1 th:text="${category.getName()}"></h1>
-    <h3 th:each="review : ${category.getReviews()}">
-        <a th:text="${review.getReviewTitle()}" th:href="@{'/reviews/' + ${review.getId()}}">Review</a>
-    </h3>
+    <div class="content__body__info">
 
+        <h1 th:text="${category.getName()}"></h1>
+        <h3 th:each="review : ${category.getReviews()}">
+            <a th:text="${review.getReviewTitle()}" th:href="@{'/reviews/' + ${review.getId()}}">Review</a>
+        </h3>
+
+    </div>
 </div>
 
 <footer class="content__footer"><h3><a href="/">Home</a></h3></footer>
