@@ -6,8 +6,14 @@
     <title>Title</title>
 </head>
 <body>
+
+<h3 class="nav"><a href="/categories">Categories</a></h3>
+<h3 class="nav"><a href="/reviews">Reviews</a></h3>
+<h3 class="nav"><a href="/hashtags">Hashtags</a></h3>
+
+
 <div th:each="review : ${reviews}">
-    <h2  th:text="${review.userName}" class="review__username">Default User Name</h2>
+    <h2 th:text="${review.userName}" class="review__username">Default User Name</h2>
 
     <h1 class="review__name"><a th:text="${review.reviewTitle}" th:href="@{'/reviews/' + ${review.getId()}}">Default
         Title</a></h1>
