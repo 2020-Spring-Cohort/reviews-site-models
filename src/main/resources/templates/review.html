@@ -2,27 +2,42 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org/" lang="en">
 
 <head>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
     <meta charset="UTF-8">
     <title th:text="${review.getReviewTitle()}">Shoe Review</title>
 </head>
-<body>
+<body class="content">
 
-<h3 class="nav"><a href="/categories">Categories</a></h3>
-<h3 class="nav"><a href="/reviews">Reviews</a></h3>
-<h3 class="nav"><a href="/hashtags">Hashtags</a></h3>
+<header class="content__nav">
+    <h3><a href="/categories">Categories</a></h3>
+    <h3><a href="/reviews">Reviews</a></h3>
+    <h3><a href="/hashtags">Hashtags</a></h3>
+</header>
 
 
-<div>
+<div class="content__body">
     <h2 th:text="${review.getUserName()}">Default User Name</h2>
     <h1 th:text="${review.getReviewTitle()}">Default Title</h1>
     <h3 th:text="${review.getPrice()}">Default Price</h3>
     <h3><a th:text="${review.getCategory().getName()}" th:href="@{'/categories/' + ${review.getCategory().getName()}}">Default
         Category </a></h3>
+    <p th:text="${review.getDescription()}">Review Content</p>
+    <p>Hashtags</p>
+    <div th:each="hashtag : ${review.getHashtags()}">
+        <p><a th:text="${hashtag.getName()}" th:href="@{'/hashtags/' + ${hashtag.getId()}}">Hashtag</a></p>
+    </div>
 
-
-    <p>Review Content</p>
-
+    <form th:action="'/reviews/' + ${review.getId()} + '/set-hashtag'" method="post">
+        <select name="hashtagName">
+            <option th:each="hashtag : ${hashtags}" th:value="${hashtag.getName()}" th:text="${hashtag.getName()}">
+                Hashtag
+            </option>
+        </select>
+        <button type="submit">Add Hashtag to Review</button>
+    </form>
 </div>
+
+<footer class="content__footer"><h3><a href="/">Home</a></h3></footer>
 
 </body>
 </html>

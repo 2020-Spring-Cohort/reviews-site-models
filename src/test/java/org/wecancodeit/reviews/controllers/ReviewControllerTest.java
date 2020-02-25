@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.wecancodeit.reviews.models.Category;
 import org.wecancodeit.reviews.models.Review;
 import org.wecancodeit.reviews.storage.CategoryStorage;
+import org.wecancodeit.reviews.storage.HashtagStorage;
 import org.wecancodeit.reviews.storage.ReviewStorage;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -22,6 +23,7 @@ public class ReviewControllerTest {
     private Model model;
     private ReviewStorage mockStorage;
     private CategoryStorage mockCategoryStorage;
+    private HashtagStorage mockHashtagStorage;
     private Review testReview;
     private MockMvc mockMvc;
     private Category testCategory;
@@ -30,7 +32,8 @@ public class ReviewControllerTest {
     void setUp() {
         mockStorage = mock(ReviewStorage.class);
         mockCategoryStorage = mock(CategoryStorage.class);
-        underTest = new ReviewController(mockCategoryStorage, mockStorage);
+        mockHashtagStorage = mock(HashtagStorage.class);
+        underTest = new ReviewController(mockCategoryStorage, mockStorage, mockHashtagStorage);
         mockMvc = MockMvcBuilders.standaloneSetup(underTest).build();
         model = mock(Model.class);
         testCategory = new Category("Good");

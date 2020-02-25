@@ -2,25 +2,30 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org/"
       xmlns="http://www.w3.org/1999/xhtml">
 <head>
-
+    <link rel="stylesheet" href="/css/style.css">
     <title>#Hashtags</title>
 
 </head>
 
 
-<body>
+<body class="content">
 
-<h3 class="nav"><a href="/categories">Categories</a></h3>
-<h3 class="nav"><a href="/reviews">Reviews</a></h3>
-<h3 class="nav"><a href="/hashtags">Hashtags</a></h3>
+<header class="content__nav">
+    <h3><a href="/categories">Categories</a></h3>
+    <h3><a href="/reviews">Reviews</a></h3>
+    <h3><a href="/hashtags">Hashtags</a></h3>
+</header>
 
+<div class="content__body">
+    <h1 th:text="${hashtag.getName()}">Hashtag</h1>
 
-<h1 th:text="${hashtag.getName()}">Hashtag</h1>
+    <h2 th:each="review : ${hashtag.getReviews()}">
+        <a th:text="${review.getReviewTitle()}" th:href="@{'/reviews/' + ${review.getId()}}">Review</a>
+    </h2>
 
-<h2 th:each="review : ${hashtag.getReviews()}">
-    <a th:text="${review.getReviewTitle()}" th:href="@{'/reviews/' + ${review.getId()}}">Review</a>
-</h2>
+</div>
 
+<footer class="content__footer"><h3><a href="/">Home</a></h3></footer>
 
 </body>
 

@@ -4,8 +4,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.wecancodeit.reviews.models.Category;
+import org.wecancodeit.reviews.models.Hashtag;
 import org.wecancodeit.reviews.models.Review;
 import org.wecancodeit.reviews.storage.CategoryStorage;
+import org.wecancodeit.reviews.storage.HashtagStorage;
 import org.wecancodeit.reviews.storage.ReviewStorage;
 
 
@@ -15,10 +17,12 @@ public class ReviewController {
 
     private CategoryStorage categoryStorage;
     private ReviewStorage storage;
+    private HashtagStorage hashtagStorage;
 
-    public ReviewController(CategoryStorage categoryStorage, ReviewStorage storage) {
+    public ReviewController(CategoryStorage categoryStorage, ReviewStorage storage, HashtagStorage hashtagStorage) {
         this.categoryStorage = categoryStorage;
         this.storage = storage;
+        this.hashtagStorage = hashtagStorage;
     }
 
     @GetMapping //root path
@@ -42,10 +46,20 @@ public class ReviewController {
         return "redirect:";
     }
 
+    @PostMapping("/{id}/set-hashtag")
+    public String addHashtagToReview(@RequestParam("hashtagName") String hashtagName, @PathVariable long id) {
+        Hashtag retrievedHashtag = hashtagStorage.findHashtagByName(hashtagName);
+        Review retrievedReview = storage.findReviewById(id);
+        retrievedReview.getHashtags().add(retrievedHashtag);
+        storage.store(retrievedReview);
+        return "redirect:/reviews/" + id;
+    }
+
     @GetMapping("/{id}")
     public String displayReview(@PathVariable long id, Model model) {
         Review retrievedReview = storage.findReviewById(id);
         model.addAttribute("review", retrievedReview);
+        model.addAttribute("hashtags", hashtagStorage.getAll());
         return "review";
     }
 }
