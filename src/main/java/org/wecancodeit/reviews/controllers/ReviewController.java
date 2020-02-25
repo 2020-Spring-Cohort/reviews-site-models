@@ -50,6 +50,11 @@ public class ReviewController {
     public String addHashtagToReview(@RequestParam("hashtagName") String hashtagName, @PathVariable long id) {
         Hashtag retrievedHashtag = hashtagStorage.findHashtagByName(hashtagName);
         Review retrievedReview = storage.findReviewById(id);
+
+        if (retrievedReview.getHashtags().contains(retrievedHashtag)) {
+            return "redirect:/reviews/" + id;
+        }
+
         retrievedReview.getHashtags().add(retrievedHashtag);
         storage.store(retrievedReview);
         return "redirect:/reviews/" + id;
