@@ -8,6 +8,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.ui.Model;
 import org.wecancodeit.reviews.models.Category;
 import org.wecancodeit.reviews.models.Review;
+import org.wecancodeit.reviews.storage.CategoryStorage;
 import org.wecancodeit.reviews.storage.ReviewStorage;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -20,17 +21,21 @@ public class ReviewControllerTest {
     private ReviewController underTest;
     private Model model;
     private ReviewStorage mockStorage;
+    private CategoryStorage mockCategoryStorage;
     private Review testReview;
     private MockMvc mockMvc;
+    private Category testCategory;
 
     @BeforeEach
     void setUp() {
         mockStorage = mock(ReviewStorage.class);
-        underTest = new ReviewController(mockStorage);
+        mockCategoryStorage = mock(CategoryStorage.class);
+        underTest = new ReviewController(mockCategoryStorage, mockStorage);
         mockMvc = MockMvcBuilders.standaloneSetup(underTest).build();
         model = mock(Model.class);
-        Category testCategory = new Category("Good");
-        testReview = new Review(testCategory, "Test", "Test", 100);
+        testCategory = new Category("Good");
+        testReview = new Review("Test", testCategory, "Test", "Test", 100);
+        when(mockCategoryStorage.findCategoryByName("Good")).thenReturn(testCategory);
         when(mockStorage.findReviewById(1L)).thenReturn(testReview);
     }
 
@@ -61,11 +66,12 @@ public class ReviewControllerTest {
     @Test
     public void addReviewShouldRedirect() throws Exception {
         mockMvc.perform(post("/reviews/add")
+                .param("category", "Good")
                 .param("reviewName", "Test")
                 .param("reviewDescription", "Test")
                 .param("reviewPrice", "100")
-                .param("userName", "test"))
+                .param("userName", "Test"))
                 .andExpect(status().is3xxRedirection());
-        verify(mockStorage).store(new Review("Test", "test", "Test", 100));
+        verify(mockStorage).store(new Review("Test", testCategory, "Test", "Test", 100));
     }
 }
