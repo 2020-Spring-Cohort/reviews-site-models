@@ -24,7 +24,7 @@
 
             <h1 class="review__name"><a th:text="${review.reviewTitle}" th:href="@{'/reviews/' + ${review.getId()}}">Default
                 Title</a></h1>
-            <h3 th:text="${review.price}" class="review__price">Default Price</h3>
+            <h3 th:text="'$' + ${review.price}" class="review__price">Default Price</h3>
 
             <p th:text="${review.getDescription()}">Description</p>
 
