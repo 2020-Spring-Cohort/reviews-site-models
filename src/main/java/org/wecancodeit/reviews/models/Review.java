@@ -16,7 +16,7 @@ public class Review {
     private Category category;
     @ManyToMany
     private Collection<Hashtag> hashtags;
-    @Column(columnDefinition = "text")
+    @Lob
     private String description;
     private int price;
     private static int idCount = 1;
