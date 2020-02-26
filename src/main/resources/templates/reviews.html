@@ -30,7 +30,7 @@
 
         </div>
 
-        <form action="/reviews/add" method="POST">
+        <form class="content__body__form" action="/reviews/add" method="POST">
             <select name="category">
                 <option th:each="category : ${categories}" th:text="${category.getName()}"
                         th:value="${category.getName()}">

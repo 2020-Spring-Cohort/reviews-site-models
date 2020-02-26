@@ -29,7 +29,7 @@ public class Populator implements CommandLineRunner {
 
         Review coolReview1 = new Review(cool, "Test", "Test", 123);
         Review coolReview2 = new Review(cool, "Test2", "Test", 321);
-        Review coolReview3 = new Review(cool, "Test2", "Test", 789);
+        Review coolReview3 = new Review(cool, "Test3", "Test", 789);
         reviewStorage.store(coolReview1);
         reviewStorage.store(coolReview2);
         reviewStorage.store(coolReview3);

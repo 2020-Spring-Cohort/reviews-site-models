@@ -1,17 +1,22 @@
 
 .content__nav {
-    background-color: gray;
-
+    /*background-color: gray;*/
+    background-image: linear-gradient(to top, slategray, darkslategray);
 }
 
 .content__body {
-    background-color: darkslategray;
+    background-image: linear-gradient(to top right, slategray, darkslategray);
 
 }
 
-.content__footer {
-    background-color: gray;
+.content__body__form {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
 
+.content__footer {
+    /*background-color: gray;*/
+    background-image: linear-gradient(to top, slategray, darkslategray);
 }
 
 a:visited, a:link, a:hover, a:active {
