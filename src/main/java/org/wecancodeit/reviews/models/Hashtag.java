@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -32,7 +33,7 @@ public class Hashtag {
 
     public Hashtag(String name, Review... reviews) {
         this.name = name;
-        this.reviews = Arrays.asList(reviews);
+        this.reviews = new ArrayList<>(Arrays.asList(reviews));
     }
 
     public Hashtag(String name) {
