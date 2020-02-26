@@ -48,6 +48,15 @@ button:hover {
     padding: 10px;
 }
 
+.content__image {
+    display: flex;
+    /*max-width: 500px;*/
+    /*height: 100px;*/
+    justify-content: center;
+    align-content: center;
+
+}
+
 .content__body__info {
     display: flex;
     flex-direction: column;
