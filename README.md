@@ -1,25 +1,45 @@
-# Reviews Site
+# Acquisitions Inc.
 
-## Module 3 Group Project
+## Shoe Review Site
 
-### Goals
-Build a dynamic web application with a MVC architecture.
-- Use TDD to create a suite of unit tests and integration tests.
-- Keep your code clean.
-  - Use a linter to maintain code style and formatting standards.
-  - Use proper naming conventions.
-  - Make clear and concise names for methods and variables.
-  - Use OOP principles.
-- Use Agile workflows and tools.
-    - Use GitHub projects to create a kanban board for your project.
-    - Utilize sprint planning sessions to plan sprints.
-    - Sprint Retrospectives to reflect on your workflow and team dynamic.
-    - Mob/Pair Program at all times!
-- Make effective use of git and GitHub.
-  - Make frequent commits.
-  - Utilize good commit messages to describe the commit to teammates.
-  - Utilize feature branching.
-- Working Software based on the Module 3 assignment guideline at [Module 3](https://wecancodeit-materials.netlify.com/cohorts/java/module-three/) 
-  - We are looking for an web application that utilizes a MVC architecture using spring boot.  
-  - We need to see dynamic content being rendered and the ability to add content to the application through an HTML form.
-  - Upon submission we should have an application that starts and passes all tests in the test folder.
+### UI/UX
+
+Hello and welcome to Acquisition Inc's newest user interface within our shoe department!
+
+<br>
+Here you will find an easy to use interface which provides the ability to leave extensive <br>
+reviews on our ever-growing shoe database.  Thanks to the work put in by 'Team Models' <br>
+we now have a way to keep track of how our customers are feeling towards our products. <br>
+
+<br>
+Within our new user interface you will find multiple ways to make your feelings known:
+
+- Home Page:
+
+  - Navigate between our two main pages: Categories & Hashtags.
+  - There is a navigation bar in the header which stays on top of every page<br> and  also allows
+   you to navigate between: Categories, Hashtags & Reviews.
+  - You will also find a navigation bar with a home link in the footer which stays <br>
+   on every page. 
+  
+- Category, Reviews & Hashtag pages:
+    - Leave a detailed review which can include your name or be anonymous.
+    - The user can choose a specific category for their review. The review will    
+    be stored with other shoe reviews in the same category.
+    - Hashtags are also saved and stored in like categories of their own.
+    - The user can navigate between reviews by their category or hashtags.
+    - The user can make, change or delete their review at any time.
+  
+    
+- Easy user interface
+  - Clear links
+  - Clear grouping
+   
+- Test Driven and Clean Code techniques
+  - Team Models utilized proper TDD procedures within industry standards to<br>
+  ensure a robust and properly functioning dynamic website.   
+  - Excellent use of Clean Code techniques to ensure easy maintenance in the <br>
+  future.
+  
+  Team Models: Colin W, Fatuma P, Noah D & Abdul J
+  
