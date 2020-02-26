@@ -1,6 +1,7 @@
 package org.wecancodeit.reviews.models;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -16,7 +17,7 @@ public class Review {
     private Category category;
     @ManyToMany
     private Collection<Hashtag> hashtags;
-    @Column(columnDefinition = "text")
+    @Lob
     private String description;
     private int price;
     private static int idCount = 1;
@@ -31,6 +32,7 @@ public class Review {
         this.description = description;
         this.price = price;
         this.reviewId = idCount++;
+        this.hashtags = new ArrayList<>();
     }
 
     public Review(String reviewTitle, String userName, String description, int price) {
@@ -39,6 +41,7 @@ public class Review {
         this.description = description;
         this.price = price;
         this.reviewId = idCount++;
+        this.hashtags = new ArrayList<>();
     }
 
     public Review(Category category, String title, String description, int price) {
@@ -46,6 +49,7 @@ public class Review {
         this.reviewTitle = title;
         this.description = description;
         this.price = price;
+        this.hashtags = new ArrayList<>();
     }
 
     public Review(Category category, String reviewTitle, String description, int price, Hashtag... hashtags) {
@@ -53,7 +57,7 @@ public class Review {
         this.reviewTitle = reviewTitle;
         this.description = description;
         this.price = price;
-        this.hashtags = Arrays.asList(hashtags);
+        this.hashtags = new ArrayList<>(Arrays.asList(hashtags));
     }
 
     public Review(String userName, Category category, String reviewTitle, String description, int price) {
@@ -62,6 +66,7 @@ public class Review {
         this.reviewTitle = reviewTitle;
         this.description = description;
         this.price = price;
+        this.hashtags = new ArrayList<>();
     }
 
     public Collection<Hashtag> getHashtags() {

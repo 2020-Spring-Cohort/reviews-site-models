@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.test.annotation.DirtiesContext;
 import org.wecancodeit.reviews.models.Category;
 import org.wecancodeit.reviews.models.Hashtag;
 import org.wecancodeit.reviews.models.Review;
@@ -16,6 +17,7 @@ import java.util.Optional;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DataJpaTest
+@DirtiesContext
 public class JpaWiringTest {
     @Autowired
     private ReviewRepository reviewRepo;
@@ -49,13 +51,12 @@ public class JpaWiringTest {
     public void hashtagsShouldBeAbleToHaveMultipleReviews() {
 
         Category testCategory = new Category("shoes");
-        Review testReview1 = new Review(testCategory, "review title1", "description", 200);
-        Review testReview2 = new Review(testCategory, "review title2", "description", 50);
-        Review testReview3 = new Review(testCategory, "review title3", "description", 100);
+        Review testReview1 = new Review("Test", testCategory, "review title1", "description", 200);
+        Review testReview2 = new Review("Test", testCategory, "review title2", "description", 50);
+        Review testReview3 = new Review("Test", testCategory, "review title3", "description", 100);
 
         Hashtag testHashtag1 = new Hashtag("#cool", testReview1, testReview2);
         Hashtag testHashtag2 = new Hashtag("#awesome", testReview1, testReview3);
-
 
         categoryRepo.save(testCategory);
 
@@ -65,6 +66,11 @@ public class JpaWiringTest {
 
         hashtagRepo.save(testHashtag1);
         hashtagRepo.save(testHashtag2);
+
+        testReview1.getHashtags().add(testHashtag1);
+        testReview1.getHashtags().add(testHashtag2);
+        testReview2.getHashtags().add(testHashtag1);
+        testReview3.getHashtags().add(testHashtag2);
 
         entityManager.flush();
         entityManager.clear();
