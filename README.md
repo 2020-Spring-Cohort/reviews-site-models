@@ -28,7 +28,7 @@ Within our new user interface you will find multiple ways to make your feelings 
     be stored with other shoe reviews in the same category.
     - Hashtags are also saved and stored in like categories of their own.
     - The user can navigate between reviews by their category or hashtags.
-    - The user can make, change or delete their review at any time.
+    
   
     
 - Easy user interface
