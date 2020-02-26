@@ -37,11 +37,11 @@ button:hover {
     flex-direction: row;
     justify-content: space-evenly;
     flex: 0 1 40px;
+    border-bottom: medium solid rgba(255, 255, 255, 0.5);
 }
 
 .content__body {
     display: flex;
-    /*flex-direction: row;*/
     flex: 1 1 auto;
     flex-flow: row nowrap;
     overflow-y: auto;
@@ -50,11 +50,10 @@ button:hover {
 
 .content__image {
     display: flex;
-    /*max-width: 500px;*/
-    /*height: 100px;*/
-    justify-content: center;
+    max-width: 500px;
+    max-height: 500px;
     align-self: center;
-
+    align-items: center;
 }
 
 .content__body__info {
@@ -62,14 +61,22 @@ button:hover {
     flex-direction: column;
 }
 
+.content__body__info {
+    color: #958677;
+}
+
 .content__footer {
     display: flex;
     justify-content: center;
     align-content: center;
     flex: 0 1 40px;
+    border-top: medium solid rgba(255, 255, 255, 0.5);
 }
 
 .content__categories__header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
     grid-area: category-header;
     border: thin solid whitesmoke;
     border-radius: 8px;
@@ -81,6 +88,9 @@ button:hover {
 }
 
 .content__hashtags__header {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
     grid-area: hashtag-header;
     border: thin solid whitesmoke;
     border-radius: 8px;
@@ -102,5 +112,5 @@ button:hover {
 }
 
 a:visited, a:link, a:hover, a:active {
-    text-decoration: none;
+    /*text-decoration: none;*/
 }
