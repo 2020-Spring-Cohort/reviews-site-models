@@ -56,6 +56,10 @@ button:hover {
     align-items: center;
 }
 
+#hashtag-png {
+    filter: invert(100%);
+}
+
 .content__body__info {
     display: flex;
     flex-direction: column;
