@@ -22,13 +22,13 @@
 
         <h2 th:text="${review.getUserName()}">Default User Name</h2>
         <h1 th:text="${review.getReviewTitle()}">Default Title</h1>
-        <h3 th:text="${review.getPrice()}">Default Price</h3>
+        <h3 th:text="'$' + ${review.getPrice()}">Default Price</h3>
         <h3><a th:text="${review.getCategory().getName()}"
                th:href="@{'/categories/' + ${review.getCategory().getName()}}">Default
             Category </a></h3>
         <p th:text="${review.getDescription()}">Review Content</p>
         <p>Hashtags</p>
-        <div th:each="hashtag : ${review.getHashtags()}">
+        <div th:each="hashtag : ${review.getHashtags()}" th:remove="tag">
             <p><a th:text="${hashtag.getName()}" th:href="@{'/hashtags/' + ${hashtag.getId()}}">Hashtag</a></p>
         </div>
 
