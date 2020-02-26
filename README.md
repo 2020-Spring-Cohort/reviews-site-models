@@ -17,9 +17,9 @@ Within our new user interface you will find multiple ways to make your feelings 
 - Home Page:
 
   - Navigate between our two main pages: Categories & Hashtags.
-  - There is a NAV bar in the header which stays on top of every page and <br> also allows
+  - There is a navigation bar in the header which stays on top of every page<br> and  also allows
    you to navigate between: Categories, Hashtags & Reviews.
-  - You will also find a NAV bar with a home link in the footer which stays <br>
+  - You will also find a navigation bar with a home link in the footer which stays <br>
    on every page. 
   
 - Category, Reviews & Hashtag pages:
@@ -40,4 +40,6 @@ Within our new user interface you will find multiple ways to make your feelings 
   ensure a robust and properly functioning dynamic website.   
   - Excellent use of Clean Code techniques to ensure easy maintenance in the <br>
   future.
+  
+  Team Models: Colin W, Fatuma P, Noah D & Abdul J
   
